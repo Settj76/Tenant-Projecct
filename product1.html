@@ -178,64 +178,26 @@
                 <div class="row">
                     <div class="col-5 text-center">
                         <p>Start Date</p>
-                        <input type="date" id="birthday" name="birthday" class="form-control">
+                        <input type="date" id="start-date-input">
                     </div>
                     <div class="col-5 text-center">
                         <p>End Date</p>
-                        <input type="date" id="birthday" class="form-control" >
+                        <input type="date" id="end-date-input">
                     </div>
+                    <button onclick="calculateRental()">Calculate</button>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-3">
-                        <p style="font-weight: bold;">Delivery Option</p>
-                    </div>
-                    <div class="col-3">
-                        <select name="cars" id="cars" class="form-control">
-                            <option value="volvo">Delivery</option>
-                            <option value="saab">EMS</option>
-                            <option value="mercedes">Kerry</option>
-                            <option value="audi">Grab</option>
-                          </select>
-                    </div>
-                    <div class="col"></div>
+
+                <div style="margin-top: 30px">
+                  <button type="submit" class="btn" id="btn-deal" style="font-weight: bold;">
+                    Make a Deal
+                  </button>
+                  <p>Number of days: <span id="num-days"></span></p>
+    <p>Number of weeks: <span id="num-weeks"></span></p>
+    <p>Number of months: <span id="num-months"></span></p>
+    <p>Rental price: <span id="rental-price"></span></p>
+    <p>Deposit: 3000</p>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-3">
-                        <p>Retal</p>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" id="fname" name="fname" class="form-control">
-                    </div>
-                    <div class="col"></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-3">
-                        <p>Refundable Deposit</p>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" id="fname" name="fname" class="form-control">
-                    </div>
-                    <div class="col"></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-3">
-                        <p>Sub Total</p>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" id="fname" name="fname" class="form-control">
-                    </div>
-                    <div class="col"></div>
-                </div>
-                <div class="row mt-5">
-                  <div class="col-2"></div>
-                  <div class="col-3">
-                    <button type="submit" class="btn" id="btn-deal" style="font-weight: bold;">
-                      Make a Deal
-                    </button>
-                  </div>
-                  <div class="col"></div>
-                </div>
-            </div>
+              </div>
             </div>
         </div>
 
@@ -337,53 +299,61 @@
    
   </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"> </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"> </script>
 
+  <script>
+        // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+  </script>
 
   <script>
-    // Get the modal
-var modal = document.getElementById("myModal");
+      function calculateRental() {
+        const startDateInput = document.getElementById('start-date-input').value;
+        const endDateInput = document.getElementById('end-date-input').value;
+        const startDate = new Date(startDateInput);
+        const endDate = new Date(endDateInput);
+        const timeDiff = endDate.getTime() - startDate.getTime();
+        const daysDiff = timeDiff / (1000 * 3600 * 24);
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
+        const weeks = Math.floor(daysDiff / 7);
+        const daysRemaining = daysDiff % 7;
+        const months = Math.floor(daysDiff / 30);
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+        let rentalPrice;
+        if (daysDiff >= 30) {
+          rentalPrice = (months * 3500);
+        } else if (weeks >= 1) {
+          rentalPrice = (weeks * 1000) + (daysRemaining * 250);
+        } else {
+          rentalPrice = (daysDiff * 250);
+        }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-  </script>
+        document.getElementById('num-days').textContent = daysDiff.toString();
+        document.getElementById('num-weeks').textContent = weeks.toString();
+        document.getElementById('num-months').textContent = months.toString();
+        document.getElementById('rental-price').textContent = rentalPrice.toString();
+      }
+    </script>
 </body>
 
 </html>
