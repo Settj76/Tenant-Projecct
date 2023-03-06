@@ -1,222 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <title>Tenant - Home</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no" />
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    />
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style-renter.css" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      />
 
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <script type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
 
   <body>
     <header class="container">
       <a class="navbar-brand" href="index.html">TENANT</a>
     </header>
-
-    <main>
-      <div class="login">
-        <div class="container">
-          <div class="row">
-            <div class="col-6" id="brandlogin">TENANT</div>
-            <div class="col-6 mb-2" >
-              <div class="card">
-                <h1 id="signin">Sign in</h1>
-                <h5 style="margin-left: 25px; margin-bottom: -10px">Or if you don't have one yet? <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Sign up</a></h5>
-                <form style="margin-left: 10px; margin-right: 10px">
-                  <div class="form-group mt-1" id="form">
-                    <input
-                      type="email"
-                      class="form-control"
-                      aria-describedby="emailHelp"
-                      placeholder="Email Address" required
-                    />
-                  </div>
-                  <div class="form-group mt-1" id="form">
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Password" required
-                    />
-                  </div>
-
-                  <button type="submit" class="btn" id="btn-signup">
-                    Sign in
-                  </button>
-                </form>
-                <div class="container mt-2">
-                  <div class="row">
-                    <div class="col-md-5"><hr /></div>
-                    <div class="col-md-2" id="txt-or">Or</div>
-                    <div class="col-md-5"><hr /></div>
-                  </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 text-center"><button type="submit" class="btn" id="btn-brand"><i class="fa-brands fa-facebook"></i> Facebook</div>
-                        <div class="col-md-6 text-center"><button type="submit" class="btn" id="btn-brand"><i class="fa-brands fa-google"></i> Google </div>
-                        
+    <div class="page" data-aos="fade-in">
+      <main>
+        <div class="login">
+          <div class="container">
+            <div class="row">
+              <div class="col-6" id="brandlogin">TENANT</div>
+              <div class="col-6 mb-2">
+                <div class="card">
+                  <h1 id="signin">Sign in</h1>
+                  <h5 style="margin-left: 25px; margin-bottom: -10px">Or if you
+                    don't have one yet? <a
+                      data-bs-toggle="modal" data-bs-target="#exampleModal"
+                      href="">Sign up</a></h5>
+                  <form style="margin-left: 10px; margin-right: 10px">
+                    <div class="form-group mt-1" id="form">
+                      <input type="email" class="form-control"
+                        aria-describedby="emailHelp" placeholder="Email Address"
+                        required />
                     </div>
+                    <div class="form-group mt-1" id="form">
+                      <input type="password" class="form-control"
+                        placeholder="Password" required />
+                    </div>
+
+                    <button type="submit" class="btn" id="btn-signup">
+                      Sign in
+                    </button>
+                  </form>
+                  <div class="container mt-2">
+                    <div class="row">
+                      <div class="col-md-5">
+                        <hr />
+                      </div>
+                      <div class="col-md-2" id="txt-or">Or</div>
+                      <div class="col-md-5">
+                        <hr />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-6 text-center"><button type="submit"
+                          class="btn" id="btn-brand"><i
+                            class="fa-brands fa-facebook"></i> Facebook</div>
+                        <div class="col-md-6 text-center"><button type="submit"
+                            class="btn" id="btn-brand"><i
+                              class="fa-brands fa-google"></i> Google </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </main>
+          </main>
 
-    <div class="content">
-        <div class="container" >
-          <!-- Button trigger modal -->
-            <div class="row"id="id-how" >
+          <div class="content">
+            <div class="container">
+              <!-- Button trigger modal -->
+              <div class="row" id="id-how">
                 <div class="col-2">
-                    <h1 class="mt-2 text-center" >How It's Work?</h1>
-                    <div class="row" id="ownerrenter">
-                        <a class="col-6 text-center" href="index.html" id="txt-content" style="text-decoration: none; color: black"><b>Owner</b></a>
-                        <a class="col-6 text-center" href="index-renter.html" id="txt-content" style="color: black"><b>Renter</b></a>
-                    </div>                  
+                  <h1 class="mt-2 text-center">How It's Work?</h1>
+                  <div class="row" id="ownerrenter">
+                    <a class="col-6 text-center" href="index.html"
+                      id="txt-content-owner"><b>Owner</b></a>
+                    <a class="col-6 text-center" href="index-renter.html"
+                      id="txt-content-renter"><b>Renter</b></a>
+                  </div>
                 </div>
                 <div class="col-10"></div>
 
                 <div class="row text-center mt-4" id="txt-how">
-                    <div class="col-3">
-                      <ion-icon class="fa text-center" name="person-add-outline"></ion-icon>
-                      <p id="txt-how-title">Sign Up</p>
-                      <p id="txt-how-content">Sign up and  getting verified on TENANT.</p>
-                    </div>
-                    <div class="col-3 text-center">
-                      <ion-icon name="arrow-redo-outline"></ion-icon>
-                      <p id="txt-how-title">Make a Deal</p>
-                      <p id="txt-how-content">Find an item, select the rental date, and delivery location or pick up item yourself.</p>
-                    </div>
-                    <div class="col-3 text-center">
-                      <ion-icon name="cash-outline"></ion-icon>
-                      <p id="txt-how-title">Pay</p>
-                      <p id="txt-how-content">Payment via debit or credit card will be handled automatically after the owner accepts the deal.</p>
-                    </div>
-                    <div class="col-3 text-center">
-                      <ion-icon name="calendar-outline"></ion-icon>
-                      <p id="txt-how-title">Collect Item</p>
-                      <p id="txt-how-content">Meet with the owner to collect and return the items on the selected day and time.</p>
+                  <div class="col-3">
+                    <ion-icon class="fa text-center" name="person-add-outline"></ion-icon>
+                    <p id="txt-how-title">Sign Up</p>
+                    <p id="txt-how-content">Sign up and getting verified on
+                      TENANT.</p>
+                  </div>
+                  <div class="col-3 text-center">
+                    <ion-icon name="arrow-redo-outline"></ion-icon>
+                    <p id="txt-how-title">Make a Deal</p>
+                    <p id="txt-how-content">Find an item, select the rental
+                      date, and delivery location or pick up item
+                      yourself.</p>
+                  </div>
+                  <div class="col-3 text-center">
+                    <ion-icon name="cash-outline"></ion-icon>
+                    <p id="txt-how-title">Pay</p>
+                    <p id="txt-how-content">Payment via debit or credit card
+                      will be handled automatically after the owner
+                      accepts the deal.</p>
+                  </div>
+                  <div class="col-3 text-center">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    <p id="txt-how-title">Collect Item</p>
+                    <p id="txt-how-content">Meet with the owner to collect and
+                      return the items on the selected day and time.
+                    </p>
 
-                    </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="footer">
-      <div class="container-fluid">
-        <div class="container">
-        <div class="row">
-          <div class="col-4">
-            <p id="footer-title"> TENET</p>
-            <div class="row" id="brand-icon">
-              <div class="col-12" id="content-brand-icon">
-                <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-google"></i></a>
-              </i>
-            </div>
-              
-              
-            </div>
-          </div>
-          <div class="col-4"> 
-            <p id="footer-title"> Categeries </p>
-            <div class="row">
-              <div class="col-6">
-                <p id="content-cat">Mobile</p>
-                <p id="content-cat">Watches</p>
-                <p id="content-cat">Bags</p>
-                <p id="content-cat">Camera</p>
-                <p id="content-cat">Computer</p>
-                <p id="content-cat">Accessories</p>
-              </div>
-            <div class="col-6">
-                <p id="content-cat">Decoration</p>
-                <p id="content-cat">Camping</p>
-                <p id="content-cat">Dresses</p>
-                <p id="content-cat">Suits</p>
-            </div>
-          </div>
-          </div>
-          <div class="col-4"> 
-            <p id="footer-title"> More on TENANT</p>
-            <div class="row">
-              <div class="col-12">
-                <p id="content-cat">About Us</p>
-                <p id="content-cat">Help Centre</p>
-                <p id="content-cat">Terms and Condition</p>
-                <p id="content-cat">Privacy Policy</p>
-                <p id="content-cat">Contact Us</p>
               </div>
             </div>
           </div>
+
+
+          <div class="footer">
+            <div class="container-fluid">
+              <div class="container">
+                <div class="row">
+                  <div class="col-4">
+                    <p id="footer-title">TENET</p>
+                    <div class="row" id="brand-icon">
+                      <div class="col-12" id="content-brand-icon">
+                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-google"></i></a>
+                      </i>
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="col-4">
+                  <p id="footer-title"> Categeries </p>
+                  <div class="row">
+                    <div class="col-6">
+                      <p id="content-cat">Mobile</p>
+                      <p id="content-cat">Watches</p>
+                      <p id="content-cat">Bags</p>
+                      <p id="content-cat">Camera</p>
+                      <p id="content-cat">Computer</p>
+                      <p id="content-cat">Accessories</p>
+                    </div>
+                    <div class="col-6">
+                      <p id="content-cat">Decoration</p>
+                      <p id="content-cat">Camping</p>
+                      <p id="content-cat">Dresses</p>
+                      <p id="content-cat">Suits</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <p id="footer-title"> More on TENANT</p>
+                  <div class="row">
+                    <div class="col-12">
+                      <p id="content-cat">About Us</p>
+                      <p id="content-cat">Help Centre</p>
+                      <p id="content-cat">Terms and Condition</p>
+                      <p id="content-cat">Privacy Policy</p>
+                      <p id="content-cat">Contact Us</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bootstrap JavaScript Libraries -->
+
+        <script
+          src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+          integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+          crossorigin="anonymous"></script>
+
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+          integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+          crossorigin="anonymous"></script>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script>
+      AOS.init();
+    </script>
+      </body>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="card" style="margin-left: -10px; margin-right: -10px;
+                margin-top: -10px">
+                <form>
+                  <div class="form-group mt-1" id="form">
+                    <input type="text" class="form-control"
+                      aria-describedby="emailHelp"
+                      placeholder="Phone Number / Username / Email" required />
+                  </div>
+                  <div class="form-group mt-1" id="form">
+                    <input type="password" class="form-control"
+                      placeholder="Password" required />
+                  </div>
+
+                  <div class="form-group mt-1" id="form" style="margin-bottom:
+                    10px">
+                    <input type="password" class="form-control"
+                      placeholder="Confirm Password" required />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-warning" id="btn-signup">Sign
+                up</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    </div>
-    <!-- Bootstrap JavaScript Libraries -->
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-
-  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="card" style="margin-left: -10px; margin-right: -10px; margin-top: -10px">
-          <form>
-            <div class="form-group mt-1" id="form">
-              <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Phone Number / Username / Email" required/>
-            </div>
-            <div class="form-group mt-1" id="form">
-              <input type="password" class="form-control" placeholder="Password" required/>
-            </div>
-
-            <div class="form-group mt-1" id="form" style="margin-bottom: 10px">
-              <input type="password" class="form-control" placeholder="Confirm Password" required/>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-warning" id="btn-signup">Sign up</button>
-      </div>
-    </div>
-  </div>
-</div>
-</html>
+  </html>
