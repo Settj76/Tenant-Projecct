@@ -157,6 +157,17 @@ main {
    
 }
 
+#notification {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #FFCD07;
+    color: rgb(0, 0, 0);
+}
+
+
+#notifcation-txt {
+    color: #FFCD07
+}
 
 
 
