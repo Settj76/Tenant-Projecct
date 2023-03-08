@@ -121,10 +121,7 @@
                         </button>
                       </div>
                       <div class="col-4"></div>
-
                     </div>
-                    
-                    
                     <hr>
                     <div class="container" style="background-color:#FFFAE7 ;">
                       <p style="font-weight: bolder; font-size: 25px;">Description</p>
@@ -132,9 +129,6 @@
                       
                     </div>
                     <hr class="mt-4">
-
-
-
                 </div>
             </div>
 
@@ -177,28 +171,67 @@
                     <div class="col-6"></div>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col-5 text-center">
-                        <p>Start Date</p>
-                        <input type="date" id="start-date-input">
-                    </div>
-                    <div class="col-5 text-center">
-                        <p>End Date</p>
-                        <input type="date" id="end-date-input">
-                    </div>
-                    <button onclick="calculateRental()">Calculate</button>
-                </div>
 
-                <div style="margin-top: 30px">
-                  <button type="submit" class="btn" id="btn-deal" style="font-weight: bold;">
-                    Make a Deal
-                  </button>
-                  <p>Number of days: <span id="num-days"></span></p>
-    <p>Number of weeks: <span id="num-weeks"></span></p>
-    <p>Number of months: <span id="num-months"></span></p>
-    <p>Rental price: <span id="rental-price"></span></p>
-    <p>Deposit: 3000</p>
+                <div class="row">
+                    <form action="order.html">
+                      <div class="col-5 text-center">
+                          <p>Start Date</p>
+                          <input class="form-control" type="date" id="start-date" name="start-date" required="">
+                      </div>
+                      <div class="col-5 text-center">
+                          <p>End Date</p>
+                          <input class="form-control" type="date" id="end-date" name="end-date" required="">
+                      </div>
+                      <br>
+                      <p style="margin-top: 20px; font-size: 25px;">Summary:</p>
+                      <p style="font-size: 25px;">Days: <span id="duration-days"></span></p>
+                      <p style="font-size: 25px;">Duration: <span id="duration-weeks"></span></p>
+                      <p style="font-size: 30px;">Total Prices: <span id="price"></span></p>
+                      <button type="submit" class="btn" id="btn-deal" style="font-weight: bold;">
+                        Make a Deal
+                      </button>
+                    </form>
                 </div>
+  <script>
+    function calculate() {
+      // get input values
+      var startDate = new Date(document.getElementById("start-date").value);
+      var endDate = new Date(document.getElementById("end-date").value);
+      
+      // calculate duration and price
+      var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+      var duration = Math.round(Math.abs((startDate - endDate) / oneDay)) + 1; // add 1 to include the start day
+      var dailyPrice = 250;
+      var weeklyPrice = 1000;
+      var monthlyPrice = 3500;
+      var totalMonths = Math.floor(duration / 30);
+      var remainingDays = duration % 30;
+      var totalWeeks = Math.floor(remainingDays / 7);
+      var remainingDaysInWeek = remainingDays % 7;
+      var totalPrice = totalMonths * monthlyPrice + totalWeeks * weeklyPrice + remainingDaysInWeek * dailyPrice + 3050; // add the deposit to the total price
+      
+      // output results
+      document.getElementById("duration-days").textContent = duration + " days";
+      document.getElementById("duration-weeks").textContent = totalMonths + " months, " + totalWeeks + " weeks, and " + remainingDaysInWeek + " days";
+      document.getElementById("price").textContent = "$" + totalPrice;
+    }
+
+    window.addEventListener('load', () => {
+      var today = new Date().toISOString().split('T')[0];
+      document.getElementById('start-date').setAttribute('min', today);
+      document.getElementById('end-date').setAttribute('min', today);
+
+      document.getElementById('start-date').addEventListener('input', () => {
+        document.getElementById('end-date').setAttribute('min', document.getElementById('start-date').value);
+        calculate();
+      });
+
+      document.getElementById('end-date').addEventListener('input', () => {
+        calculate();
+      });
+    });
+  </script>
+
               </div>
             </div>
         </div>
@@ -329,68 +362,38 @@
     }
   </script>
 
-  <script>
-      function calculateRental() {
-        const startDateInput = document.getElementById('start-date-input').value;
-        const endDateInput = document.getElementById('end-date-input').value;
-        const startDate = new Date(startDateInput);
-        const endDate = new Date(endDateInput);
-        const timeDiff = endDate.getTime() - startDate.getTime();
-        const daysDiff = timeDiff / (1000 * 3600 * 24);
-
-        const weeks = Math.floor(daysDiff / 7);
-        const daysRemaining = daysDiff % 7;
-        const months = Math.floor(daysDiff / 30);
-
-        let rentalPrice;
-        if (daysDiff >= 30) {
-          rentalPrice = (months * 3500);
-        } else if (weeks >= 1) {
-          rentalPrice = (weeks * 1000) + (daysRemaining * 250);
-        } else {
-          rentalPrice = (daysDiff * 250);
-        }
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-</script>
-
 <script>
 
-AOS.init({
-  // Global settings:
-  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-  initClassName: 'aos-init', // class applied after initialization
-  animatedClassName: 'aos-animate', // class applied on animation
-  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-  
+  AOS.init({
+    // Global settings:
+    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+    initClassName: 'aos-init', // class applied after initialization
+    animatedClassName: 'aos-animate', // class applied on animation
+    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+    
 
-  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-  offset: 120, // offset (in px) from the original trigger point
-  delay: 0, // values from 0 to 3000, with step 50ms
-  duration: 400, // values from 0 to 3000, with step 50ms
-  easing: 'ease', // default easing for AOS animations
-  once: false, // whether animation should happen only once - while scrolling down
-  mirror: false, // whether elements should animate out while scrolling past them
-  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+    offset: 120, // offset (in px) from the original trigger point
+    delay: 0, // values from 0 to 3000, with step 50ms
+    duration: 400, // values from 0 to 3000, with step 50ms
+    easing: 'ease', // default easing for AOS animations
+    once: false, // whether animation should happen only once - while scrolling down
+    mirror: false, // whether elements should animate out while scrolling past them
+    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
-});
+  });
 
 </script>
-  <script>
+<script>
         document.getElementById('num-days').textContent = daysDiff.toString();
         document.getElementById('num-weeks').textContent = weeks.toString();
         document.getElementById('num-months').textContent = months.toString();
         document.getElementById('rental-price').textContent = rentalPrice.toString();
       }
-    </script>
+</script>
 </body>
-
 </html>
